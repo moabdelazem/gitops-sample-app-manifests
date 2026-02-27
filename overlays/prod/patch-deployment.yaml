@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-sample-app
+  namespace: gitops-sample-app
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+        - name: gitops-sample-app
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
