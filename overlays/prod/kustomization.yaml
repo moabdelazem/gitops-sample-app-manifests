@@ -4,6 +4,8 @@ kind: Kustomization
 resources:
   - ../../base
 
+namespace: gitops-sample-app-prod
+
 images:
   - name: moabdelazem/gitops-app
     newTag: v1.0.1

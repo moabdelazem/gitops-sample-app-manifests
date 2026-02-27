@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitops-sample-app
-  namespace: gitops-sample-app
   labels:
     app: gitops-sample-app
 spec:

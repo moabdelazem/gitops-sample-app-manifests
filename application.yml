@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops-sample-app
+  name: gitops-sample-app-dev
   namespace: argocd
 spec:
   project: default
@@ -11,7 +11,28 @@ spec:
     path: overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: gitops-sample-app
+    namespace: gitops-sample-app-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitops-sample-app-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/moabdelazem/gitops-sample-app-manifests.git
+    targetRevision: main
+    path: overlays/prod
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitops-sample-app-prod
   syncPolicy:
     automated:
       prune: true
