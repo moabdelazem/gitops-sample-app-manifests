@@ -6,7 +6,7 @@ resources:
 
 images:
   - name: moabdelazem/gitops-app
-    newTag: latest
+    newTag: f3d902d
 
 patches:
   - path: patch-configmap.yaml
