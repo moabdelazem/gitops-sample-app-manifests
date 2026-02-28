@@ -8,7 +8,7 @@ namespace: gitops-sample-app-dev
 
 images:
   - name: moabdelazem/gitops-app
-    newTag: 136573b
+    newTag: faaf577
 
 patches:
   - path: patch-configmap.yaml
